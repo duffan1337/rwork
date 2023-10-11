@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Список типов работ</h1>
+<ul>
+{% for worktype in worktypes %}
+    <li>{{ worktype.name }}</li>
+{% endfor %}
+</ul>
+
+<h1>Список предметов</h1>
+<ul>
+{% for subject in subjects %}
+    <li>{{ subject.name }}</li>
+{% endfor %}
+</ul>
+{% endblock %}

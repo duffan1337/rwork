@@ -1,0 +1,23 @@
+{{#> layout }}
+    {{#*inline "content"}}
+        <div class="section">
+            <div class="wrapper">
+
+                {{> breadcrumbs }}
+
+                <div class="title title_detail">
+                    Отзывы о Readywork.ru
+                    <div>
+                        <div class="title__detail">Количество отзывов: <span>666</span></div>
+                        <div class="title__detail">Средняя оценка: <span>6.6</span></div>
+                    </div>
+                </div>
+
+                {{> reviews class="reviews_tape"}}
+
+                {{> paginator }}
+
+            </div>
+        </div>
+    {{/inline}}
+{{/layout}}

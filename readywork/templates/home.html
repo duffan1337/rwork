@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>main page</h1>
+    <hr>
+
+    {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+        <a href="{% url 'login' %}">Login</a> |
+        <a href="{% url 'register' %}">Registration</a>
+    {% endif %}
+
+    {% for work in works %}
+        <li>
+            <h2><a href="{% url 'work_detailed' work.pk %}">{{work.work_theme}}</a></h2>
+            <p>{{work.user_price}}</p>
+            <p>{{work.created_at}}</p>
+        </li>
+    {% endfor %}
+
+{% endblock %}

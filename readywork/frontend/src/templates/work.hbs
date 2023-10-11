@@ -1,0 +1,31 @@
+{{#> layout class="work-page" }}
+    {{#*inline "content"}}
+        <div class="section section_breadcrumbs">
+            <div class="wrapper">
+                {{> breadcrumbs }}
+            </div>
+        </div>
+        <div class="section section_work">
+            <div class="wrapper">
+                {{> work }}
+            </div>
+        </div>
+        <div class="section section_work-tabs">
+            <div class="wrapper">
+                {{> work-tabs }}
+            </div>
+        </div>
+        <div class="section section_similar-works">
+            <div class="wrapper">
+                <div class="title">Похожие контрольные работы по математике</div>
+                {{> works-list }}
+            </div>
+        </div>
+        <div class="section section_other-works">
+            <div class="wrapper">
+                <div class="title">Другие работы по векторам</div>
+                {{> works-list }}
+            </div>
+        </div>
+    {{/inline}}
+{{/layout}}

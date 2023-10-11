@@ -1,0 +1,61 @@
+<form action="/contacts/send" method="POST" class="form form-contact">
+    <div class="title form__title">Связаться с нами</div>
+    <div class="form__row">
+        <div class="form__col" :class="{ form__col_error: $v.fio.$error || submit.errors.email }">
+            <label for="contact.fio" class="form__col-label">Имя:</label>
+            <div class="field">
+                <input
+                    id="contact.fio"
+                    name="fio"
+                    type="text"
+                    class="input"
+                    placeholder="Как вас зовут?"
+                    v-model="$v.fio.$model"
+                    required />
+                <span class="field__error" v-if="$v.fio.$error">Введите имя</span>
+                <div v-if="submit.errors.fio">
+                    <span class="field__error" v-for="(err, index) in submit.errors.fio" :key="err.id" >{# err #}</span>
+                </div>
+            </div>
+        </div>
+        <div class="form__col" :class="{ form__col_error: $v.email.$error || submit.errors.email }">
+            <label for="contact.email" class="form__col-label">E-mail</label>
+            <div class="field">
+                <input
+                    id="contact.email"
+                    name="email"
+                    type="text"
+                    class="input"
+                    placeholder="Электронная почта"
+                    v-model="$v.email.$model"
+                    required />
+                <span class="field__error" v-if="$v.email.$error">Введите e-mail</span>
+                <div v-if="submit.errors.email">
+                    <span class="field__error" v-for="(err, index) in submit.errors.email" :key="err.id" >{# err #}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form__row">
+        <div class="form__col form__col_theme" :class="{ form__col_error: $v.question.$error || submit.errors.question }">
+            <label for="contact.question" class="form__col-label">Задать вопрос:</label>
+            <div class="field">
+                <input
+                    id="contact.question"
+                    name="question"
+                    type="text"
+                    class="input"
+                    placeholder="О чём бы вы хотели спросить?"
+                    v-model="$v.question.$model"
+                    required />
+                <span class="field__error" v-if="$v.question.$error">Введите Ваш вопрос...</span>
+                <div v-if="submit.errors.question">
+                    <span class="field__error" v-for="(err, index) in submit.errors.question" :key="err.id" >{# err #}</span>
+                </div>
+            </div>
+        </div>
+        <div class="form__col form__col_submit">
+            <button type="submit" class="btn btn_blue" @click.prevent="submitForm"><span class="loader" v-if="pending"></span><span v-else>Отправить</span></button>
+        </div>
+    </div>
+</form>

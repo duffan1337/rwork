@@ -1,0 +1,93 @@
+{{#> layout }}
+    {{#*inline "content"}}
+        <div class="section">
+            <div class="wrapper">
+
+                {{> breadcrumbs }}
+
+                <div class="contact">
+
+                    <the-form-contact></the-form-contact>
+
+                    <script type="text/x-template" id="the-form-contact-template">
+                        {{> TheFormContact }}
+                    </script>
+
+                    <div class="title">Контакты</div>
+                    <div class="title-minor contact__title-minor">
+                        Работаем по&nbsp;всей России. Офис расположен в&nbsp;Москве: <br>
+                        <span class="contact__address"></span>
+                    </div>
+                    <div class="contact__worktime">
+                        пн-пт: 10.00&nbsp;&mdash; 20.00 <br>
+                        сб: 12.00&nbsp;&mdash; 16.00 <br>
+                        воскресенье&nbsp;&mdash; выходной <br>
+                    </div>
+                    <div class="contact__cards">
+                        <div class="contact__card">
+                            <div class="contact__card-icon contact__card-icon_phone"></div>
+                            <div class="contact__card-title">Телефоны</div>
+                            <div class="contact__card-content">
+                                <div class="contact__card-info">
+                                    <a href="tel:88003338299" class="contact__card-text">8-800-333-82-99</a>
+                                    <div class="contact__card-text-minor">(бесплатно для России)</div>
+                                </div>
+                                <div class="contact__card-info">
+                                    <a href="tel:74951375972" class="contact__card-text">+7 (495) 137-59-72</a>
+                                    <div class="contact__card-text-minor">(городской)</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact__card">
+                            <div class="contact__card-icon contact__card-icon_letter"></div>
+                            <div class="contact__card-title">Email</div>
+                            <a href="mailto:info@readywork.ru" class="contact__card-text">info@readywork.ru</a>
+                        </div>
+                    </div>
+
+                    <p>График работы операторов: ежедневно с&nbsp;9.00 до&nbsp;18.00</p>
+
+                    <ul class="list">
+                        <li class="list__item">Сотрудники Readywork&nbsp;&mdash; элитное подразделение под кодовым названием&laquo;Штурмозга&raquo;.
+                            Этих людей объединил не&nbsp;только преподавательский стаж, но&nbsp;и&nbsp;маниакальное
+                            стремление работать. Попытки захватить мир и&nbsp;Галактику строго пресекаются руководством.
+                            Подразделение придерживается четкой иерархии: преподаватели, профессора, доктора наук и&nbsp;т.д.
+                        </li>
+                        <li class="list__item">Каждый сотрудник имеет право грызть гранит науки не&nbsp;менее одного раза в&nbsp;месяц.
+                            Уточнение твердости породы, расцветки и&nbsp;личных предпочтений приветствуются при получении
+                            заказа.
+                        </li>
+                        <li class="list__item">Во&nbsp;время написания работ сотрудникам не&nbsp;запрещается вести пары,
+                            учить и&nbsp;подкармливать студентов.
+                        </li>
+                        <li class="list__item">Такие матерные выражения как &laquo;плагиат&raquo;, &laquo;не&nbsp;успел&raquo;,
+                            &laquo;брак&raquo;, &laquo;ошибки&raquo; и&nbsp;некоторые другие, строго преследуются
+                            руководством проекта. Обязательное наказание&nbsp;&mdash; очередное прочтение &laquo;Война и&nbsp;Мир&raquo;
+                            в&nbsp;кратчайшие сроки с&nbsp;пересказыванием основных моментов произведения. Размеры
+                            максимальных штрафов оговариваются персонально в&nbsp;онлайн присутствии заказчика.
+                        </li>
+                        <li class="list__item">Присутствие музы, арифмометра, личной Ленинской библиотеки и&nbsp;прочих
+                            мелочей, необходимых для работы, категорически приветствуется.
+                        </li>
+                        <li class="list__item">Руководство Readywork заинтересовано в&nbsp;получении наилучшего результата
+                            работ, поэтому готово предоставить сотрудникам всю необходимую информацию и&nbsp;ресурсы.
+                            Переговоры с&nbsp;властями, ФСБ и&nbsp;Папским хранилищем Ватикана находятся на&nbsp;финальной
+                            стадии.
+                        </li>
+                        <li class="list__item">Контрольные, курсовые, дипломные и&nbsp;прочие работы выполняются в&nbsp;четко
+                            ограниченные сроки. Если в&nbsp;Word-е закончилась бумага или чернила, Excel выдает свободные
+                            ячейки по&nbsp;большому блату, а&nbsp;в&nbsp;Paint нет краски нужного цвета&nbsp;&mdash;
+                            обязательно обратитесь к&nbsp;руководству. Все необходимые ресурсы будут предоставлены в&nbsp;кратчайшие
+                            сроки.
+                        </li>
+                        <li class="list__item">Все сотрудники Readywork проявляют рвение и&nbsp;особую любовь к&nbsp;работе
+                            и&nbsp;ресурсу. Проявление всего вышеперечисленного в&nbsp;данном пункте поощряется бонусными
+                            плюшками, магнитиками на&nbsp;холодильник и&nbsp;дартсом с&nbsp;полноразмерной фотографией
+                            недругов. Кто не&nbsp;с&nbsp;нами&nbsp;&mdash; тот не&nbsp;знает всех прелестей жизни!
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    {{/inline}}
+{{/layout}}

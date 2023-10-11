@@ -1,0 +1,24 @@
+<div class="sidenav js-sidenav" :class="{ active: isActive }">
+    {{!-- <button class="btn sidenav__close-btn js-sidenav__close-btn" @click="closeModal()">&times;</button> --}}
+    <div>
+        <a href="tel:88003338299" class="sidenav__phone">8 800 333-82-99</a>
+        {{> nav class="sidenav__nav"}}
+    </div>
+    <div class="sidenav__footer" v-if="!$store.state.isAuth">
+        <button
+            v-for="type in types"
+            :key="type.component"
+            :class="['btn sidenav__btn']"
+            @click="openLoginModal(type.component)">
+            {# type.name #}
+        </button>
+    </div>
+    <div class="sidenav__footer" v-if="$store.state.isAuth">
+        <a href="https://client.readywork.ru/" class="btn sidenav__btn">
+            <span>Личный кабинет</span>
+        </a>
+        <button class="btn sidenav__btn" @click="$store.commit('logOut');">
+            <span>Выйти</span>
+        </button>
+    </div>
+</div>

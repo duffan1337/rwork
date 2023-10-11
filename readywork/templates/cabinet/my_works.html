@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Мои работы</h1>
+
+<div>
+    {% for work in works %}
+        <li>Название - {{ work.work_theme }}</li>
+        <li>Цена - {{ work.user_price }}</li>
+        <li>Количество покупок - {{ work.count_purchases }}</li>
+        <li>Статус - {{ work.order_status }}</li>
+    <br>
+    <br>
+    {% endfor %}
+</div>
+{% endblock %}

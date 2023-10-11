@@ -1,0 +1,8 @@
+.subject {
+    margin-top: 32px;
+
+    &__info-table {
+        width: 100%;
+        margin-top: 24px;
+    }
+}

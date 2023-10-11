@@ -1,0 +1,93 @@
+.payment {
+    margin: 16px 0;
+
+    &__items-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: -15px;
+        margin-right: -15px;
+
+        @media (--tablet) {
+            margin-left: -5px;
+            margin-right: -5px;
+        }
+
+        @media (--mobile) {
+            justify-content: center;
+        }
+    }
+
+    &__item {
+        display: inline-block;
+        cursor: pointer;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 180px;
+        height: 50px;
+        margin: 15px;
+        background-size: contain;
+        filter: grayscale(100%);
+        transition: filter 0.6s;
+
+        @media (--tablet) {
+            margin: 5px;
+            width: 100px;
+            height: 40px;
+        }
+
+        &:hover {
+            filter: grayscale(0%);
+        }
+
+        &_webmoney {
+            background-image: svg-load("../svg/logo_webmoney.svg");
+            width: 180px;
+
+            @media (--tablet) {
+                width: 120px;
+            }
+        }
+
+        &_qiwi {
+            background-image: svg-load("../svg/logo_qiwi.svg");
+            width: 130px;
+
+            @media (--tablet) {
+                width: 80px;
+            }
+        }
+
+        &_yandex-money {
+            background-image: svg-load("../svg/logo_yandex-money.svg");
+            width: 130px;
+
+            @media (--tablet) {
+                width: 100px;
+            }
+        }
+
+        &_visa-master {
+            background-image: svg-load("../svg/logo_mastercard-visa.svg");
+            width: 130px;
+
+            @media (--tablet) {
+                width: 120px;
+            }
+        }
+
+        &_robokassa {
+            background-image: svg-load("../svg/logo_robokassa.svg");
+            width: 170px;
+
+            @media (--tablet) {
+                width: 120px;
+            }
+        }
+
+        &_sberbank {
+            background-image: svg-load("../svg/logo_sberbank.svg");
+        }
+    }
+}

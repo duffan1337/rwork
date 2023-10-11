@@ -1,0 +1,96 @@
+.workscheme {
+    margin-bottom: 30px;
+    margin-top: 28px;
+
+    @media (--tablet) {
+        margin: 20px 0;
+    }
+
+
+    &__item-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+
+        @media (--tablet) {
+            justify-content: center;
+        }
+
+        @media (--mobile) {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    &__item {
+        position: relative;
+        display: inline-block;
+        text-align: center;
+        max-width: 255px;
+        min-width: 195px;
+        flex: 1 1 auto;
+
+        @media (--tablet) {
+            margin: 10px 0;
+        }
+
+        &:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            right: -10px;
+            top: 25px;
+            width: 20px;
+            height: 8px;
+            background: svg-load("../svg/arrow_r.svg", fill=#1baaef) no-repeat center;
+            background-size: contain;
+
+            @media (--mobile) {
+                display: none;
+            }
+        }
+    }
+
+    &__img {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+
+        &_screen {
+            background-image: svg-load("../svg/screen.svg");
+            width: 60px;
+            height: 60px;
+
+        }
+
+        &_calc {
+            background-image: svg-load("../svg/calc.svg");
+
+        }
+
+        &_case {
+            background-image: svg-load("../svg/bag.svg");
+
+        }
+
+        &_pen {
+            background-image: svg-load("../svg/pencil.svg");
+            transform: scaleX(-1);
+        }
+
+        &_card {
+            background-image: svg-load("../svg/card.svg");
+
+        }
+
+    }
+
+    &__text {
+        font-size: 18px;
+        letter-spacing: 0.3px;
+        text-align: center;
+        color: var(--black);
+    }
+}

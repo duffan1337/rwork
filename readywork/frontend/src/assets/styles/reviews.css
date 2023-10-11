@@ -1,0 +1,184 @@
+.reviews {
+
+    &__items-wrapper {
+        display: flex;
+        margin: -12px;
+
+        @media (--tablet) {
+            flex-direction: column;
+        }
+    }
+
+    &__item {
+        display: flex;
+        padding: 12px;
+        max-width: 100%;
+        width: 100%;
+        flex: 1 1 100%;
+    }
+
+    &__item-inner {
+        position: relative;
+        border-radius: 4px;
+        background-color: #fff;
+        box-shadow: var(--shadow);
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        max-width: 100%;
+        width: 100%;
+        flex: 1 1 100%;
+        min-height: 250px;
+        max-height: 336px;
+        transition: .2s;
+
+        @media (--mobile) {
+            overflow: hidden;
+            min-height: 200px;
+            max-height: 286px;
+        }
+
+        &:hover {
+            box-shadow: 0 0 20px 0 rgba(0, 0, 0, .2);
+        }
+    }
+
+    &__link {
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        cursor: pointer;
+        z-index: 1;
+    }
+
+    &__footer {
+        position: relative;
+
+        &::before {
+            content: "";
+            display: block;
+            height: 1px;
+            width: 100%;
+            margin-top: 22px;
+            margin-bottom: 10px;
+            background-color: rgb(222, 228, 239);
+        }
+    }
+
+    &__head {
+        margin-bottom: 3px;
+    }
+
+    &__rate {
+        height: 20px;
+        width: 100px;
+        background-repeat: repeat-x;
+        background-size: contain;
+        vertical-align: middle;
+        margin-bottom: 12px;
+        background-image: svg-load("../svg/star.svg", fill=#ffd515);
+
+        @media (--tablet) {
+            display: inline-block;
+            margin-right: 10px;
+            margin-bottom: 0;
+        }
+    }
+
+    &__name {
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: 0.3px;
+        color: var(--black);
+        margin-top: 5px;
+        margin-bottom: 5px;
+        vertical-align: middle;
+
+        @media (--tablet) {
+            display: inline-block;
+            min-height: auto;
+        }
+    }
+
+    &__text {
+        position: relative;
+        font-size: 18px;
+        letter-spacing: 0.3px;
+        color: var(--black);
+        flex: 1 1 auto;
+        overflow: hidden;
+        padding-bottom: 32px;
+
+        & p {
+            margin: 0;
+            line-height: 22px;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            display: inline-block;
+            width: 100%;
+            height: 32px;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.0001), #fff 85%);
+        }
+    }
+
+    &__jobtype {
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: 0.3px;
+        color: rgb(17, 153, 214);
+    }
+
+    &__date {
+        font-size: 14px;
+        letter-spacing: 0.2px;
+        color: rgb(117, 121, 137);
+    }
+}
+
+.reviews_main {
+    margin: 26px 0;
+}
+
+.reviews_tape {
+
+    & .reviews {
+
+        &__items-wrapper {
+            display: flex;
+            flex-direction: column;
+            margin: -6px;
+        }
+
+        &__item {
+            min-height: auto;
+            padding: 6px;
+        }
+
+        &__name {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        &__rate {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        &__jobtype, &__date, &__name {
+            display: inline-block;
+        }
+
+        &__date {
+            float: right;
+        }
+    }
+}

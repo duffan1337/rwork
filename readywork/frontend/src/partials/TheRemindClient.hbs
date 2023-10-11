@@ -1,0 +1,21 @@
+<form action="" class="form {{class}}">
+    <div class="form__row">
+        <div class="form__col" :class="{ form__col_error: $v.email.$error }">
+            <div class="field">
+                <input
+                    name="email"
+                    type="text"
+                    class="input"
+                    placeholder="E-mail"
+                    v-model="$v.email.$model"
+                    required />
+                <span class="field__error" v-if="$v.email.$error">Введите e-mail</span>
+            </div>
+        </div>
+    </div>
+    <div class="form__row">
+        <div class="form__col">
+            <button type="submit" class="btn btn_blue" @click.prevent="submitForm"><span class="loader" v-if="pending"></span><span v-else>Выслать пароль</span></button>
+        </div>
+    </div>
+</form>

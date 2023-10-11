@@ -1,0 +1,182 @@
+.jobtype {
+    margin: 24px 0;
+
+    &__inner {
+        padding: 25px;
+        border-radius: 4px;
+        box-shadow: var(--shadow);
+        background-color: #fff;
+        max-height: 110px;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
+
+        @media (--mobile) {
+            min-height: 220px;
+        }
+    }
+
+    &__inner:hover {
+        height: auto;
+        max-height: 500px;
+    }
+
+    &__inner:hover &__content {
+        animation: fadeIn 0.3s ease-out;
+        animation-fill-mode: both;
+    }
+
+    &__content {
+        animation-iteration-count: 1;
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+
+        @media (--mobile) {
+            flex-direction: column;
+            margin-bottom: 23px;
+        }
+    }
+
+    &__title {
+        position: relative;
+        min-height: 40px;
+        font-size: 24px;
+        line-height: 32px;
+        font-weight: 500;
+        letter-spacing: 0.4px;
+        color: var(--black);
+        background: svg-load("../svg/job-icon_01.svg") no-repeat 0 0;
+        background-size: 28px 32px;
+        padding-left: 50px;
+
+        @media (--tablet) {
+            padding-left: 40px;
+        }
+
+        @media (--mobile) {
+            padding-left: 45px;
+            margin-bottom: 10px;
+        }
+        
+        & a {
+            color: inherit;
+            transition: color .2s;
+
+            &:hover {
+                color: var(--secondary);
+            }
+        }
+    }
+
+    &__price {
+        display: inline-block;
+        font-size: 18px;
+        font-weight: 300;
+        letter-spacing: 0.3px;
+        vertical-align: middle;
+        margin-right: 20px;
+
+        @media (--tablet) {
+            margin-right: 25px;
+        }
+
+        @media (--mobile) {
+            display: block;
+            margin-right: 0;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        & span {
+            position: relative;
+            font-size: 30px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            color: var(--black);
+
+            &::after {
+                content: "₽";
+                font-size: 31px;
+                letter-spacing: 0.5px;
+                color: var(--black);
+            }
+        }
+    }
+
+    &__btn {
+        cursor: pointer;
+        border: none;
+        outline: none;
+        width: 157px;
+        text-align: center;
+        line-height: 60px;
+        vertical-align: middle;
+        height: 60px;
+        border-radius: 4px;
+        box-shadow: 0 5px 20px 0 var(--secondary-shadow);
+        background-color: var(--secondary);
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: 0.3px;
+        color: #fff;
+        transition: all 0.2s;
+
+        @media (--tablet) {
+            width: 150px;
+        }
+
+        @media (--mobile) {
+            display: block;
+        }
+
+        &:hover {
+            box-shadow: 0 5px 10px 0 var(--secondary-shadow);
+            background-color: rgb(27, 138, 206);
+        }
+    }
+
+    &__text {
+        margin-bottom: 12px;
+        margin-top: 12px;
+        font-size: 18px;
+        font-weight: 300;
+        letter-spacing: 0.3px;
+        color: var(--black);
+
+        @media (--tablet) {
+            font-size: 16px;
+            letter-spacing: 0.2px;
+        }
+
+        @media (--mobile) {
+            text-align: center;
+            margin-top: 23px;
+        }
+    }
+
+    &__deadline {
+        margin-top: 12px;
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: 0.3px;
+        color: var(--black);
+
+        @media (--mobile) {
+            text-align: center;
+        }
+    }
+}
+
+@keyframes showThis {
+
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+}

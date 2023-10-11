@@ -1,0 +1,113 @@
+.progress {
+
+    &__title {
+        margin: 0;
+        margin-bottom: 56px;
+        text-align: center;
+
+        @media (--mobile) {
+            margin-bottom: 24px;
+            font-size: 20px;
+            line-height: 23px;
+        }
+    }
+
+    &__list {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1000px;
+        margin: 0 auto;
+        margin-bottom: 56px;
+        padding: 0;
+        list-style: none;
+
+        @media (--mobile) {
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: calc((100% - 4 * 24px) / 5);
+        font-size: 16px;
+        line-height: 19px;
+        text-align: center;
+        color: #2f323d;
+
+        @media (--mobile) {
+            flex-direction: column;
+            width: 180px;
+            margin-bottom: 24px;
+        }
+
+        &::before {
+            content: "";
+            width: 72px;
+            height: 72px;
+            margin-bottom: 12px;
+            border-radius: 50%;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .1);
+        }
+
+        &:nth-child(1) {
+
+            &::before {
+                background: #fff svg-load("../svg/progress-pencil.svg", fill="#1BAAEF") center/50% no-repeat;
+            }
+        }
+
+        &:nth-child(2) {
+
+            &::before {
+                background: #fff svg-load("../svg/progress-file-checked.svg", fill="#1BAAEF") center/50% no-repeat;
+            }
+        }
+
+        &:nth-child(3) {
+
+            &::before {
+                background: #fff svg-load("../svg/progress-glasses.svg", fill="#1BAAEF") center/50% no-repeat;
+            }
+        }
+
+        &:nth-child(4) {
+
+            &::before {
+                background: #fff svg-load("../svg/progress-case.svg", fill="#1BAAEF") center/50% no-repeat;
+            }
+        }
+
+        &:nth-child(5) {
+
+            &::before {
+                background: #fff svg-load("../svg/progress-flag.svg", fill="#1BAAEF") center/50% no-repeat;
+            }
+        }
+    }
+
+    &__description {
+        max-width: 800px;
+        margin: 0 auto;
+
+        & p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 24px;
+            text-align: center;
+            color: #757989;
+
+            @media (--mobile) {
+                font-size: 14px;
+                line-height: 24px;
+            }
+
+            & + p {
+                margin-top: 1em;
+            }
+        }
+    }
+}

@@ -1,0 +1,197 @@
+.paginator {
+    position: relative;
+    font-size: 16px;
+    line-height: 35px;
+    color: #2f323d;
+    /* background-color: #fff; */
+    text-align: center;
+    /* margin: 16px 0 32px; */
+
+    @media (--tablet) {
+        margin-top: 12px;
+        margin-bottom: 50px;
+    }
+
+    & a {
+        display: block;
+        min-width: 30px;
+        height: 40px;
+        font-size: 14px;
+        font-weight: 300;
+        letter-spacing: 0.2px;
+        line-height: 40px;
+        color: #2f323d;
+        text-decoration: none;
+        transition: color 0.3s;
+
+        &:hover {
+            color: #fff;
+        }
+    }
+
+    &__item:not(&__item-more):not(&__item_current):hover {
+        background-color: var(--secondary);
+        cursor: pointer;
+    }
+
+    &__list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        /* padding: 10px 0; */
+        display: inline-block;
+        font-size: 0;
+
+        &:empty {
+            display: none;
+        }
+    }
+
+    &__item {
+        display: inline-block;
+        vertical-align: top;
+        padding: 0 5px;
+        border-radius: 2px;
+        transition: background-color 0.2s;
+
+        & span {
+            cursor: default;
+            display: block;
+            width: 30px;
+            height: 40px;
+            font-size: 16px;
+            line-height: 40px;
+            color: #2f323d;
+            text-align: center;
+        }
+    }
+
+    &__item_current {
+        background-color: rgb(241, 244, 249);
+
+        & a {
+            color: #2f323d;
+
+            &:hover {
+                color: #fff;
+            }
+        }
+    }
+
+    &__item_prev,
+    &__item_next {
+        background-size: 16px;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    &__item_prev {
+        background-image: svg-load("../svg/chevron-left.svg", fill=#2f323d);
+
+        &:hover {
+            background-image: svg-load("../svg/chevron-left.svg", fill=#fff);
+        }
+    }
+
+    &__item_next {
+        background-image: svg-load("../svg/chevron-right.svg", fill=#2f323d);
+
+        &:hover {
+            background-image: svg-load("../svg/chevron-right.svg", fill=#fff);
+        }
+    }
+
+    &__control {
+        display: block;
+        position: absolute;
+        top: 20px;
+
+        &::after {
+            top: 13px;
+        }
+
+        &::before {
+            top: 17px;
+        }
+
+        &_prev {
+            left: 0;
+
+            &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                left: 0;
+                border-width: 6px 7px 6px 0;
+                border-color: transparent #2f323d transparent transparent;
+            }
+
+            &::before {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 7px;
+                height: 4px;
+                background-color: #2f323d;
+                left: 7px;
+            }
+
+            &:hover::after {
+                border-color: transparent #1baaef transparent transparent;
+            }
+
+            &:hover::before {
+                background-color: #1baaef;
+            }
+        }
+
+        &_next {
+            right: 0;
+
+            &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                right: 0;
+                border-width: 6px 0 6px 7px;
+                border-color: transparent transparent transparent #2f323d;
+            }
+
+            &::before {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 7px;
+                height: 4px;
+                background-color: #2f323d;
+                right: 7px;
+            }
+
+            &:hover::after {
+                border-color: transparent transparent transparent #1baaef;
+            }
+
+            &:hover::before {
+                background-color: #1baaef;
+            }
+        }
+    }
+
+    &__count {
+        position: absolute;
+        bottom: 32px;
+        right: 0;
+
+        @media (--tablet) {
+            position: static;
+            text-align: center;
+            padding: 10px 0 20px;
+        }
+    }
+}

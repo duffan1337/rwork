@@ -1,0 +1,25 @@
+/* OLD MEDIA */
+/* > 1200 */
+/* @custom-media --desktop (min-width: 75em); */
+
+/* < 1024 */
+/* @custom-media --tablet (max-width: 74.999em); */
+
+/* < 768 */
+/* @custom-media --mobile (max-width: 48em); */
+
+/* < 480 */
+/* @custom-media --mobile-small (max-width: 30em); */
+
+
+/* > 1200 */
+@custom-media --desktop (min-width: 75em);
+
+/* < 1024 */
+@custom-media --tablet (max-width: 63.999em);
+
+/* < 768 */
+@custom-media --mobile (max-width: 47.999em);
+
+/* < 480 */
+@custom-media --mobile-small (max-width: 29.999em);

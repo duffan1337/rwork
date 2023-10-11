@@ -1,0 +1,88 @@
+.login {
+    transition: transform 0.2s;
+    max-width: 385px;
+    min-width: 350px;
+
+    &__inner {
+        position: relative;
+        background-color: #fff;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+
+    &__footer, &__header {
+        display: flex;
+        height: 60px;
+        background-color: rgb(241, 244, 249);
+        width: 100%;
+    }
+
+    &__title {
+        font-size: 18px;
+        font-weight: 600;
+        margin: auto;
+        color: #333;
+    }
+
+    &__form {
+        box-shadow: none;
+        border-radius: unset;
+        padding: 35px 12px 16px;
+        margin: 0;
+    }
+
+    &__footer {
+        font-size: 14px;
+        letter-spacing: 0.2px;
+        color: rgb(117, 121, 137);
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        & .btn {
+            font-size: inherit;
+            position: relative;
+            color: inherit;
+            text-decoration: underline;
+            padding: 0 5px;
+            transition: color 0.3s;
+
+            &:hover {
+                color: var(--secondary);
+            }
+        }
+    }
+
+    &__btn {
+        flex: 1;
+        padding: 0;
+        font-weight: 500;
+        color: var(--black);
+        background-color: rgb(241, 244, 249);
+
+        &:last-child span {
+            margin-right: 20px;
+        }
+
+        &_close {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            font-size: 40px;
+            line-height: 40px;
+            width: 40px;
+            height: 40px;
+            z-index: 1;
+            background-color: transparent;
+
+            &:hover {
+                color: var(--secondary);
+            }
+        }
+
+        &_active {
+            background-color: #fff;
+        }
+    }
+}

@@ -1,0 +1,97 @@
+.price {
+
+    &__row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: -12px;
+
+        @media (--tablet) {
+            margin: -6px 0;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    &__card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 1;
+        margin: 12px;
+
+        @media (--tablet) {
+            margin: 6px 0;
+            max-width: 600px;
+            width: 100%;
+            flex-basis: auto;
+        }
+    }
+
+    &__title {
+        font-size: 22px;
+        font-weight: bold;
+        letter-spacing: 0.3px;
+        text-align: left;
+        color: var(--black);
+        margin: 20px 0;
+    }
+
+    &__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        border-radius: 4px;
+        background-color: #fff;
+    }
+
+    &__item {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 18px;
+        letter-spacing: 0.3px;
+        text-align: left;
+        color: var(--black);
+    }
+
+    & li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        padding: 20px 25px 15px;
+
+        @media (--tablet) {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        &:not(:last-child) {
+            border-bottom: 2px solid rgb(222, 228, 239);
+        }
+    }
+
+    &__count {
+        position: relative;
+        font-size: 22px;
+        font-weight: 500;
+        letter-spacing: 0.3px;
+        text-align: right;
+        color: var(--black);
+
+        &::before {
+            content: "от";
+            font-size: 18px;
+            font-weight: 300;
+            padding-right: 4px;
+        }
+
+        &::after {
+            content: "₽";
+            padding-left: 5px;
+            font-size: 24px;
+            letter-spacing: 0.4px;
+            text-align: left;
+            color: var(--black);
+        }
+    }
+}

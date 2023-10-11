@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Detailed Work {{work.work_theme}}</h1>
+<div>
+    Название - {{work.work_theme}}
+    <br>
+    Цена - {{work.user_price}}
+    <br>
+    {% if work.user_id != user.id %}
+        <form method="post" action="{% url 'buy_work' %}">
+            {% csrf_token %}
+            <input type="hidden" name="work_id" value="{{ work.id }}">
+            <button type="submit">Купить</button>
+        </form>
+    {% endif %}
+
+</form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,183 @@
+.contact {
+
+    &__title-minor {
+        font-size: 24px;
+        line-height: 30px;
+        letter-spacing: 0.4px;
+        color: var(--black);
+    }
+
+    &__address {
+        display: inline-block;
+        width: 290px;
+        height: 45px;
+        background: svg-load("../svg/address.svg") no-repeat 0 50%;
+        background-size: contain;
+        margin-top: 8px;
+    }
+
+
+    &__worktime {
+        margin: 10px 0;
+        font-size: 18px;
+        line-height: 24px;
+        letter-spacing: 0.3px;
+        text-align: left;
+        color: var(--black);
+
+        @media(--mobile){
+            font-size: 14px;
+        }
+    }
+
+    &__cards {
+        display: flex;
+        margin: 30px 0 18px;
+
+        @media (--mobile) {
+            flex-direction: column;
+        }
+    }
+
+    &__card {
+        flex: 1 1 auto;
+        max-width: 50%;
+        width: 100%;
+        background-color: #fff;
+        border-radius: 4px;
+        padding: 32px 26px;
+        margin: 0 8px;
+
+        @media (--tablet) {
+            padding: 28px 16px;
+        }
+
+        @media (--mobile) {
+            margin: 8px 0;
+            max-width: 100%;
+            width: 100%;
+        }
+
+        &:first-child {
+            margin-left: 0;
+
+            @media (--mobile) {
+                margin-top: 0;
+            }
+        }
+
+        &:last-child {
+            margin-right: 0;
+
+            @media (--mobile) {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &__card-content {
+        display: flex;
+        flex-wrap: wrap;
+
+        @media (--mobile) {
+            flex-direction: column;
+        }
+    }
+
+    &__card-info {
+        display: inline-block;
+        flex: 1 1 auto;
+        padding-right: 16px;
+
+        &:not(:last-child) {
+
+            @media (--tablet) {
+                margin-bottom: 16px;
+            }
+        }
+    }
+
+    &__card-icon {
+        display: inline-block;
+        height: 50px;
+        width: 50px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        vertical-align: middle;
+
+        @media (--tablet) {
+            width: 40px;
+            height: 40px;
+        }
+
+        &_letter {
+            background-image: svg-load("../svg/letter.svg");
+        }
+
+        &_phone {
+            background-image: svg-load("../svg/phone.svg");
+        }
+    }
+
+    &__card-title {
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 27px;
+        letter-spacing: 0.4px;
+        color: var(--secondary);
+        margin: 20px 0 10px;
+    }
+
+    &__card-text {
+        display: inline-block;
+        font-size: 24px;
+        font-weight: bold;
+        letter-spacing: 0.4px;
+        line-height: 28px;
+        color: var(--black);
+        margin-bottom: 5px;
+    }
+
+    &__card-text-minor {
+        font-size: 18px;
+        letter-spacing: 0.3px;
+    }
+
+    & .list {
+        margin: 27px 0;
+        list-style: none;
+        padding: 0;
+        font-size: 18px;
+        line-height: 24px;
+        letter-spacing: 0.3px;
+        color: var(--black);
+
+        &__item {
+            position: relative;
+            font-size: 18px;
+            letter-spacing: 0.3px;
+            color: var(--black);
+            padding-left: 24px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+
+            &::before {
+                content: "";
+                position: absolute;
+                left: 2px;
+                top: 6px;
+                display: inline-block;
+                vertical-align: middle;
+                border-radius: 50%;
+                width: 8px;
+                height: 8px;
+                background-color: var(--secondary);
+            }
+
+            &:nth-child(4) {
+                margin-bottom: 30px;
+            }
+        }
+    }
+
+}

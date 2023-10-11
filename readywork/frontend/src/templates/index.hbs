@@ -1,0 +1,41 @@
+{{#> layout class="main-page" }}
+    {{#*inline "content"}}
+        <div class="section section_form">
+            <div class="wrapper">
+                <the-form-shop></the-form-shop>
+                <the-form-order></the-form-order>
+            </div>
+        </div>
+        <div class="section section_works">
+            <div class="wrapper">
+                {{> works-list }}
+            </div>
+        </div>
+        <div class="section section_features">
+            <div class="wrapper">
+                <div class="title title_center">Наши преимущества</div>
+            </div>
+            {{> features }}
+        </div>
+        <div class="section section_reviews">
+            <div class="wrapper">
+                <div class="title title_center">Отзывы о нашей работе</div>
+                {{> reviews class="reviews_main" }}
+                <a href="reviews" class="load-more">Все отзывы</a>
+            </div>
+        </div>
+        <div class="section section_payment">
+            <div class="wrapper">
+                <div class="title title_center">Способы оплаты</div>
+                {{> payment }}
+            </div>
+        </div>
+        <div class="section section_news">
+            <div class="wrapper">
+                <div class="title title_center">Новости</div>
+                {{> news class="news_main"}}
+                <a href="#" class="load-more">Все новости</a>
+            </div>
+        </div>
+    {{/inline}}
+{{/layout}}

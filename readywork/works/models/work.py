@@ -1,5 +1,5 @@
 from django.db import models
-class Works(models.Model):
+class Work(models.Model):
     user_id = models.IntegerField()
     worktype_id = models.IntegerField()
     subject_id = models.IntegerField()

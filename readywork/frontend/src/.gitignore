@@ -1,0 +1,7 @@
+.idea/
+.idea/***
+dist/*
+!dist/images/
+!dist/fonts/
+node_modules/
+node_modules/***

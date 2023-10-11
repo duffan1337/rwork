@@ -1,0 +1,128 @@
+.panel {
+    display: flex;
+    border-radius: 4px;
+    box-shadow: var(--shadow);
+    background-color: #fff;
+    margin: 30px 0;
+
+    @media (--tablet) {
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+    &__l-side {
+        flex: 1 0 auto;
+
+        @media (--tablet) {
+            order: 2;
+        }
+
+        &_partners {
+            padding-top: 80px;
+            padding-right: 25px;
+            padding-left: 46px;
+        }
+    }
+
+    &__r-side {
+        flex: 1 0 auto;
+
+        @media (--tablet) {
+            order: 1;
+        }
+    }
+
+    &__inner {
+        width: 100%;
+    }
+
+    &__text {
+        font-size: 30px;
+        font-weight: bold;
+        line-height: 48px;
+        letter-spacing: 0.5px;
+        color: var(--black);
+    }
+}
+
+.panel_cooperation {
+    overflow: hidden;
+
+    @media (--tablet) {
+        flex-direction: row;
+    }
+
+    @media (--mobile) {
+        flex-direction: column;
+    }
+
+    & .panel {
+
+        &__l-side {
+            padding: 29px 20px;
+            max-width: 35%;
+
+            @media (--tablet) {
+                order: 1;
+                max-width: 50%;
+                padding: 10px 15px;
+            }
+
+            @media (--mobile) {
+                order: 2;
+                max-width: 100%;
+                padding: 20px 23px;
+            }
+        }
+
+        &__r-side {
+            position: relative;
+            min-height: 454px;
+            background: url("../images/cooperation.png") no-repeat center;
+            background-size: cover;
+
+            @media (--tablet) {
+                order: 2;
+            }
+
+            @media (--mobile) {
+                order: 1;
+                min-height: 330px;
+            }
+        }
+    }
+}
+
+.panel_partners {
+
+    & .panel {
+
+        &__inner {
+            padding-right: 25px;
+            padding-left: 46px;
+
+            @media (--tablet) {
+                padding: 32px 30px;
+            }
+        }
+
+        &__l-side {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+
+        &__r-side {
+            min-height: 380px;
+            background-size: contain;
+            background: svg-load("../svg/partners.svg", fill=#abe4e2) no-repeat center;
+            background-color: #abe4e2;
+
+            @media (--tablet) {
+                min-height: 325px;
+            }
+        }
+    }
+}

@@ -1,0 +1,269 @@
+{{#> layout }}
+    {{#*inline "content"}}
+        <div class="section payment-methods">
+            <div class="wrapper">
+
+                {{> breadcrumbs }}
+
+                <div class="title">Способы оплаты</div>
+
+                <div>
+                    {{!-- CASH --}}
+                    <div class="payment-card">
+                        <div class="payment-card__title">Оплата наличными в&nbsp;офисе</div>
+                        <div class="payment-card__text">Наш офис находится в&nbsp;Москве</div>
+                        <div class="payment-card__text payment-card__text_address"></div>
+                        <div class="payment-card__minor-text">График работы: с&nbsp;10&nbsp;до&nbsp;19, суббота с&nbsp;12&nbsp;до&nbsp;16, воскресенье&nbsp;&mdash; выходной</div>
+                    </div>
+
+                    {{!-- BANK_TRANSACTION --}}
+                    <div class="payment-card" id="sberbank-method">
+                        <div class="payment-card__logo payment-card__logo_sberbank"></div>
+                        <div class="payment-card__title">Оплата банковским переводом на&nbsp;расчетный счет</div>
+                        <div class="payment-card__tip"><span>Можно оплатить только уникальные работы.</span></div>
+                        <div class="payment-card__text">Оплата услуг производится через банки, находящиеся на&nbsp;территории России.</div>
+                        <button
+                            class="payment-card__more"
+                            @click="openPaymentGuide($event)">
+                            Инструкция
+                        </button>
+
+                        <div class="payment-card__instructions">
+                            <p>Заполните квитанцию и&nbsp;оплатите ее&nbsp;в&nbsp;любом отделении банка.</p>
+                            <p>
+                                В&nbsp;назначении платежа указать: оплата заказа &#8470;(Номер Вашего заказа).
+                                Пожалуйста, сохраните квитанцию до&nbsp;зачисления платежа Вашим менеджером.
+                                Чтобы ускорить процесс зачисления, пожалуйста, отсканируйте или сфотографируйте квитанцию платежа и&nbsp;пришлите ее&nbsp;на&nbsp;электронную почту:
+                                <a href="mailto:info@readywork.ru">info@readywork.ru</a>
+                                В&nbsp;теме письма укажите номер заказа.
+                            </p>
+                        </div>
+                    </div>
+
+                    {{!-- QIWI --}}
+                    <div class="payment-card" id="qiwi-method">
+                        <div class="payment-card__logo payment-card__logo_qiwi"></div>
+                        <div class="payment-card__title">Оплата через Qiwi кошелек</div>
+                        <div class="payment-card__text">С&nbsp;помощью QIWI Кошелька вы&nbsp;можете оплатить наши товары и&nbsp;услугимоментально и&nbsp;без комиссии!</div>
+                        <div class="payment-card__text">
+                            Для этого:
+                        </div>
+                        <ol>
+                            <li>Сформируйте заказ;</li>
+                            <li>Выберите в&nbsp;качестве оплаты QIWI Кошелек и&nbsp;введите номер своего сотового телефона;</li>
+                            <li>Оплатите автоматически созданный счет на&nbsp;оплату: наличными в&nbsp;терминалах QIWI, на&nbsp;сайте
+                                QIWI Кошелька или с&nbsp;помощью приложений для социальных сетей и&nbsp;мобильных телефонов.</li>
+                        </ol>
+                        <div class="payment-card__text">QIWI Кошелек легко пополнить в&nbsp;терминалах QIWI и&nbsp;партнеров,
+                            салонах сотовой связи, супермаркетах, банкоматах или интернет-банк.
+                        </div>
+                        <div class="payment-card__text">Оплатить счет на&nbsp;оплату можно не&nbsp;только со&nbsp;счета QIWI
+                            Кошелька, но&nbsp;и&nbsp;банковской картой, наличными, а&nbsp;также с&nbsp;лицевых счетов
+                            мобильных телефонов Билайн, МегаФон и&nbsp;МТС.
+                        </div>
+                        <div class="payment-card__text">Если у&nbsp;вас еще нет QIWI Кошелька&nbsp;&mdash; вы&nbsp;можете
+                            зарегистрировать его на&nbsp;сайте QIWI Кошелька или в&nbsp;любом из&nbsp;приложений за&nbsp;несколько
+                            минут.
+                        </div>
+                        <button
+                            class="payment-card__more"
+                            @click="openPaymentGuide($event)">
+                            Инструкция
+                        </button>
+                        <div class="payment-card__instructions">
+                            <ol>
+                                <li>Сформируйте заказ на&nbsp;сайте и&nbsp;выберите в&nbsp;качестве способа оплаты Visa QIWI Wallet;</li>
+                                <li>Подойдите к&nbsp;терминалу QIWI, нажмите среднюю кнопку Visa QIWI Wallet и&nbsp;введите номер мобильного, который вы&nbsp;указали при формировании заказа;</li>
+                                <li>Нажмите мигающую кнопку &laquo;СЧЕТА К&nbsp;ОПЛАТЕ&raquo;;</li>
+                                <li>Оплатите счет наличными;</li>
+                                <li>Сдачу вы&nbsp;можете перевести на&nbsp;свой мобильный телефон или использовать для оплаты других услуг.</li>
+                            </ol>
+                            <div class="payment-card__text">
+                                Вы&nbsp;можете оплатить: наличными в&nbsp;терминалах QIWI, на&nbsp;сайте QIWI Кошелька или с&nbsp;помощью приложений для социальных сетей и&nbsp;мобильных телефонов и&nbsp;планшетов.
+                            </div>
+                        </div>
+                    </div>
+
+                    {{!-- Robokassa --}}
+                    <div class="payment-card" id="robokassa-method">
+                        <div class="payment-card__logo payment-card__logo_robokassa"></div>
+                        <div class="payment-card__title">Оплата c&nbsp;помощью системы Robokassa</div>
+                        <div class="payment-card__text">Robokassa&nbsp;&mdash; это сервис, позволяющий поставщикам услуг
+                            принимать платежи от&nbsp;клиентов в&nbsp;любой электронной валюте, с&nbsp;помощью
+                            sms-сообщений, через систему денежных переводов Contact, и&nbsp;через терминалы мгновенной
+                            оплаты.
+                        </div>
+                        <div class="payment-card__text">Оплату можно осуществить через:</div>
+                        <ul class="payment-card__list">
+                            <li>Банковскую карту</li>
+                            <li>Яндекс.Деньги (детальную информацию можно прочитать на&nbsp;www.money.yandex.ru );</li>
+                            <li>Webmoney (детальную информацию можно прочитать на&nbsp;www.webmoney.ru);</li>
+                            <li>Мобильный платеж</li>
+                        </ul>
+                        <button
+                            class="payment-card__more"
+                            @click="openPaymentGuide($event)">
+                            Инструкция
+                        </button>
+                        <div class="payment-card__instructions">
+                            <ol>
+                                <li>Войдите в&nbsp;личный кабинет.</li>
+                                <li>Перейдите на&nbsp;страницу &laquo;Мои заказы&raquo;.</li>
+                                <li>Выберите заказ для оплаты.</li>
+                                <li>Найдите графу &laquo;Оплатить через систему Robokassa&raquo;.</li>
+                                <li>Нажмите кнопку &laquo;Оплатить&raquo;.</li>
+                                <li>На&nbsp;открывшейся странице укажите способ оплаты которым хотите воспользоваться.</li>
+                                <li>Введите адрес электронной почты. Нажмите кнопку &laquo;Продолжить&raquo;.</li>
+                                <li>Далее следуйте инструкциям Robokassa.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    {{!-- Webmoney --}}
+                    <div class="payment-card" id="webmoney-method">
+                        <div class="payment-card__logo payment-card__logo_webmoney"></div>
+                        <div class="payment-card__title">Оплата через WebMoney</div>
+                        <div class="payment-card__text">WebMoney&nbsp;&mdash; электронная система, позволяющая производить
+                            расчеты через интернет, оплачивать услуги мобильной связи, телевидения и&nbsp;другие.
+                        </div>
+                        <button
+                            class="payment-card__more"
+                            @click="openPaymentGuide($event)">
+                            Инструкция
+                        </button>
+                        <div class="payment-card__instructions">
+                            <ol>
+                                <li>Войдите в&nbsp;личный кабинет</li>
+                                <li>Перейдите на&nbsp;страницу &laquo;Мои заказы&raquo;.</li>
+                                <li>Выберите заказ для оплаты.</li>
+                                <li>Найдите графу &laquo;Оплатить через WebMoney&raquo;.</li>
+                                <li>В&nbsp;зависимости от&nbsp;имеющегося у&nbsp;Вас типа кошелька (WMZ, WMR) нажмите кнопку &laquo;Оплатить&raquo;.</li>
+                                <li>Далее следуйте инструкциям WebMoney.</li>
+                                <li>Оплата с&nbsp;терминала на&nbsp;WebMoney не&nbsp;допускается!</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    {{!-- Yandexmoney --}}
+                    <div class="payment-card" id="yandex-money-method">
+                        <div class="payment-card__logo payment-card__logo_yandex-money"></div>
+                        <div class="payment-card__title">Оплата через Яндекс Деньги</div>
+                        <div class="payment-card__text">Яндекс.Деньги&nbsp;&mdash; платежная система, которая позволяет
+                            безопасно и&nbsp;быстро оплачивать товары и&nbsp;услуги в&nbsp;интернете. Управлять своим счетом
+                            можно через веб-интерфейс или с&nbsp;помощью специальной программы Интернет.Кошелек
+                        </div>
+                        <button
+                            class="payment-card__more"
+                            @click="openPaymentGuide($event)">
+                            Инструкция
+                        </button>
+                        <div class="payment-card__instructions">
+                            <ol>
+                                <li>Войдите в&nbsp;личный кабинет.</li>
+                                <li>Перейдите на&nbsp;страницу &laquo;Мои заказы&raquo;.</li>
+                                <li>Выберите заказ для оплаты.</li>
+                                <li>Найдите графу &laquo;Оплатить через систему Robokassa&raquo;.</li>
+                                <li>Нажмите кнопку &laquo;Оплатить&raquo;.</li>
+                                <li>На&nbsp;открывшейся странице укажите способ оплаты &laquo;Яндекс.Деньги&raquo;.</li>
+                                <li>Введите адрес электронной почты. Нажмите кнопку &laquo;Продолжить&raquo;.</li>
+                                <li>Далее следуйте инструкциям Robokassa.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    {{!-- Terminals --}}
+                    <div class="payment-card">
+                        <div class="payment-card__title">Оплата через терминалы</div>
+                        <ul class="payment-card__list payment-card__list_columns">
+                            <li>Элекснет</li>
+                            <li>Comepay</li>
+                            <li>Кассира.нет</li>
+                            <li>Мобил Элемент</li>
+                            <li>PinPay Express</li>
+                            <li>Absolutplat</li>
+                        </ul>
+                        <button
+                            class="payment-card__more"
+                            @click="openPaymentGuide($event)">
+                            Инструкция
+                        </button>
+                        <div class="payment-card__instructions">
+                            <p>Нужно оплатить наши услуги через терминал? Легко!</p>
+                            <p>
+                                Для оплаты через любой из&nbsp;выбранных терминалов, выставите в&nbsp;своем личном кабинете на&nbsp;сайте readywork.ru.
+                                Раздел &laquo;Оплатить работу, прикрепить квитанцию об&nbsp;оплате&raquo; выберите способ оплаты Robokassa выберите
+                                удобный вам тип терминала нажмите &laquo;Перейти к&nbsp;оплате&raquo; Счет номер ХХХХХХ выставлен оплатите его
+                                в&nbsp;любом выбранном Вами терминале. Счет действителен 24&nbsp;часа.
+                            </p>
+                            <p>
+                                Чтобы ускорить процесс зачисления, пожалуйста, отсканируйте или сфотографируйте квитанцию платежа
+                                и&nbsp;пришлите ее&nbsp;на&nbsp;электронную почту: info@readywork.ru
+                            </p>
+                            <p>В&nbsp;теме письма укажите номер заказа.</p>
+                            <p>
+                                Пожалуйста, сохраняйте квитанции выданные терминалом до&nbsp;зачисления платежа Вашим менеджером.
+                                Оплата с&nbsp;терминала на&nbsp;WebMoney не&nbsp;допускается!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <p>
+                    В&nbsp;нашей базе содержатся только качественные, авторские работы. Для облегчения процесса покупки рекомендуем
+                    ознакомиться со&nbsp;следующими пунктами. Все цены указаны ориентировочно, стоимость зависит от&nbsp;каждого конкретного заказа.
+                </p>
+                <p>
+                    Со&nbsp;всеми вопросами обращайтесь <a href="mailto:info@readywork.ru">info@readywork.ru</a>
+                </p>
+
+                {{!-- Price cards --}}
+                <div class="price">
+                    <div class="price__row">
+                        <div class="price__card">
+                            <div class="price__title">Цены на&nbsp;готовые работы</div>
+                            <ul class="price__list">
+                                <li>
+                                    <div class="price__item">Реферат</div>
+                                    <span class="price__count">220</span>
+                                </li>
+                                <li>
+                                    <div class="price__item">Курсовая работа</div>
+                                    <span class="price__count">1650</span>
+                                </li>
+                                <li>
+                                    <div class="price__item">Дипломная работа</div>
+                                    <span class="price__count">3800</span>
+                                </li>
+                                <li>
+                                    <div class="price__item">Контрольная</div>
+                                    <span class="price__count">100</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="price__card">
+                            <div class="price__title">Цены на&nbsp;уникальные работы (написание на&nbsp;заказ)</div>
+                            <ul class="price__list">
+                                <li>
+                                    <div class="price__item">Реферат</div>
+                                    <span class="price__count">220</span>
+                                </li>
+                                <li>
+                                    <div class="price__item">Курсовая работа</div>
+                                    <span class="price__count">1650</span>
+                                </li>
+                                <li>
+                                    <div class="price__item">Дипломная работа</div>
+                                    <span class="price__count">3800</span>
+                                </li>
+                                <li>
+                                    <div class="price__item">Контрольная</div>
+                                    <span class="price__count">100</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{/inline}}
+{{/layout}}

@@ -1,0 +1,67 @@
+<form action="" class="form {{class}}">
+    <div class="form__row">
+        <div class="form__col" :class="{ form__col_error: $v.client.fio.$error || submit.errors.fio }">
+            <div class="field">
+                <input
+                    name="fio"
+                    type="text"
+                    class="input"
+                    placeholder="Как вас зовут?"
+                    v-model="$v.client.fio.$model"
+                    required />
+            </div>
+            <span class="field__error" v-if="$v.client.fio.$error">Неверный ввод</span>
+            <div v-if="submit.errors.fio">
+                <span class="field__error" v-for="(err, index) in submit.errors.fio" :key="err.id" >{# err #}</span>
+            </div>
+        </div>
+    </div>
+    <div class="form__row">
+        <div class="form__col" :class="{ form__col_error: $v.client.email.$error || submit.errors.email }" v-if="!$store.state.isAuth">
+            <div class="field">
+                <input
+                    name="email"
+                    type="text"
+                    class="input"
+                    placeholder="Ваш e-mail"
+                    v-model="$v.client.email.$model"
+                    required />
+                <span class="field__error" v-if="$v.client.email.$error">Введите e-mail</span>
+                <div v-if="submit.errors.email">
+                    <span class="field__error" v-for="(err, index) in submit.errors.email" :key="err.id" >{# err #}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form__row">
+        <div class="form__col" :class="{ form__col_error: $v.client.phone.$error || submit.errors.pPhone }">
+            <div class="field">
+                <vue-tel-input
+                    name="phone"
+                    v-model="$v.client.phone.$model"
+                    placeholder="Телефон"
+                    :preferredCountries="['by', 'ua', 'kz', 'ru']"
+                    @onInput="onPhoneInput"
+                    required >
+                </vue-tel-input>
+                <span class="field__error" v-if="$v.client.phone.$error">Неверный номер</span>
+                <span class="field__error" v-if="submit.errors.phone">{# submit.errors.phone #}</span>
+            </div>
+        </div>
+    </div>
+    <div class="form__row">
+        <div class="form__col" v-if="$store.state.buyReadyWork">
+            <button type="submit" class="btn btn_blue" @click.prevent="submitForm"><span class="loader" v-if="pending"></span><span v-else>Купить работу</span></button>
+        </div>
+        <div class="form__col" v-else>
+            <button type="submit" class="btn btn_blue" @click.prevent="submitForm"><span class="loader" v-if="pending"></span><span v-else>Зарегистрироваться</span></button>
+        </div>
+    </div>
+    <div class="form__row">
+        <div class="form__col">
+            <div class="form__politics">Я даю согласие на обработку своих персональных данных в соответствии
+                <a href="/politika_konfident-RW.pdf">Политикой конфиденциальности</a>
+            </div>
+        </div>
+    </div>
+</form>

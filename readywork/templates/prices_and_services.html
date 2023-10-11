@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Стоимость студенческих работ</h1>
+<ul>
+{% for worktype in worktypes %}
+    <li>
+        <div>{{ worktype.name }}</div>
+        <div>Стоимость - {{ worktype.price }}</div>
+    </li>
+
+{% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,234 @@
+<form action="/order" method="POST" enctype="multipart/form-data" class="form form-order">
+    <div class="form__row">
+        <div class="form__col" :class="{ form__col_error: $v.order.worktype.$error || submit.errors.worktype }">
+            <label>
+                <span class="field-title">Названия темы работ</span>
+                <div class="field">
+                    <multiselect
+                        name="worktype"
+                        placeholder="Вид работы"
+                        v-model="$v.order.worktype.$model"
+                        :show-labels="false"
+                        :custom-label="customWorktypeLabel"
+                        :hide-selected="true"
+                        :close-on-select="true"
+                        :allow-empty="false"
+                        :options="worktypes">
+                        <template slot="noOptions">Список пуст</template>
+                        <template slot="noResult">Ничего не найдено. Уточните запрос</template>
+                    </multiselect>
+                    <span class="field__error" v-if="$v.order.worktype.$error">Выберите вид работы</span>
+                    <div v-if="submit.errors.worktype">
+                        <span class="field__error" v-for="(err, index) in submit.errors.worktype" :key="err.id" >{# err #}</span>
+                    </div>
+                </div>
+            </label>
+        </div>
+        <div class="form__col" :class="{ form__col_error: $v.order.subjectText.$error || submit.errors.subjectText }">
+            <label>
+                <span class="field-title">Названия темы работ</span>
+                <div class="field">
+                    <multiselect
+                        name="subjectText"
+                        placeholder="Предмет"
+                        v-model="$v.order.subjectText.$model"
+                        :taggable="true"
+                        @tag="addSubject"
+                        :tagPlaceholder="'Добавить'"
+                        :show-labels="false"
+                        :hide-selected="true"
+                        :options="subjectList">
+                        <template slot="noOptions">Список пуст</template>
+                        <template slot="noResult">Ничего не найдено. Уточните запрос</template>
+                    </multiselect>
+                    <span class="field__error" v-if="$v.order.subjectText.$error">Выберите предмет</span>
+                    <div v-if="submit.errors.subjectText">
+                        <span class="field__error" v-for="(err, index) in submit.errors.subjectText" :key="err.id" >{# err #}</span>
+                    </div>
+                </div>
+            </label>
+        </div>
+        <div class="form__col form__col_pages" :class="{ form__col_error: $v.order.pagesAll.$error || submit.errors.pagesAll }">
+            <label>
+                <span class="field-title">Названия темы работ</span>
+                <div class="field">
+                    <div class="field__number">
+                        <input
+                            name="pagesAll"
+                            type="number"
+                            class="input input_number"
+                            placeholder="Кол-во страниц"
+                            min="0"
+                            max="999"
+                            v-model="$v.order.pagesAll.$model" />
+                        <button
+                            class="field__btn field__btn_plus"
+                            @click.prevent="$v.order.pagesAll.$model = +$v.order.pagesAll.$model + 1"
+                            :disabled="$v.order.pagesAll.$model > 998">▲</button>
+                        <button
+                            class="field__btn field__btn_minus"
+                            @click.prevent="$v.order.pagesAll.$model = $v.order.pagesAll.$model - 1"
+                            :disabled="$v.order.pagesAll.$model < 1">▼</button>
+                    </div>
+                    <span class="field__error" v-if="$v.order.pagesAll.$error">Неверно указано количество</span>
+                    <div v-if="submit.errors.pagesAll">
+                        <span class="field__error" v-for="(err, index) in submit.errors.pagesAll" :key="err.id" >{# err #}</span>
+                    </div>
+                </div>
+            </label>
+        </div>
+        {{!-- <div class="form__col form__col_next-btn" v-if="stage.current === 1">
+            <button class="btn btn_blue" @click.prevent="processStage">Заказать работу</button>
+        </div> --}}
+        <div class="form__col"
+             v-if="stage.current === 2"
+             :class="{ form__col_error: $v.order.deadLine.$error || submit.errors.deadLine }">
+            <label>
+                <span class="field-title">Названия темы работ</span>
+                <div class="field">
+                    <datepicker
+                        name="deadLine"
+                        :bootstrap-styling="true"
+                        :disabledDates="state.disabledDates"
+                        v-model="$v.order.deadLine.$model"
+                        placeholder="Дата сдачи"
+                        input-class="input"
+                        :language="ru" >
+                    </datepicker>
+                    <span class="field__error" v-if="$v.order.deadLine.$error">Выберите дату сдачи</span>
+                    <div v-if="submit.errors.deadLine">
+                        <span class="field__error" v-for="(err, index) in submit.errors.deadLine" :key="err.id" >{# err #}</span>
+                    </div>
+                </div>
+            </label>
+        </div>
+    </div>
+
+    <div class="form__stage form__stage_second" v-if="stage.current === 2">
+        <div class="form__row">
+            <div class="form__col form__col_theme" :class="{ form__col_error: $v.order.description.$error || submit.errors.description }">
+                <label>
+                    <span class="field-title">Названия темы работ</span>
+                    <div class="field">
+                        <input
+                            name="description"
+                            type="text"
+                            class="input"
+                            placeholder="Тема работы"
+                            v-model="$v.order.description.$model">
+                    </div>
+                </label>
+                <span class="field__error" v-if="$v.order.description.$error">Введите тему работы</span>
+                <div v-if="submit.errors.description">
+                    <span class="field__error" v-for="(err, index) in submit.errors.description" :key="err.id" >{# err #}</span>
+                </div>
+            </div>
+            <div class="form__col form__col_theme" :class="{ form__col_error: $v.order.comment.$error || submit.errors.comment }">
+                <label>
+                    <span class="field-title">Названия темы работ</span>
+                    <div class="field">
+                        <input
+                            name="comment"
+                            type="text"
+                            class="input"
+                            placeholder="Ваши пожелания"
+                            v-model="$v.order.comment.$model">
+                        <span class="field__error" v-if="$v.order.comment.$error">Неверный ввод</span>
+                        <div v-if="submit.errors.comment">
+                            <span class="field__error" v-for="(err, index) in submit.errors.comment" :key="err.id" >{# err #}</span>
+                        </div>
+                    </div>
+                </label>
+            </div>
+        </div>
+        <div class="form__row">
+            <div class="form__col" :class="{ form__col_error: $v.client.fio.$error || submit.errors.fio }" v-if="!$store.state.isAuth">
+                <label>
+                    <span class="field-title">Названия темы работ</span>
+                    <div class="field">
+                        <input
+                            name="fio"
+                            type="text"
+                            class="input"
+                            placeholder="Ваше имя"
+                            v-model="$v.client.fio.$model">
+                    </div>
+                </label>
+                <span class="field__error" v-if="$v.client.fio.$error">Неверный ввод</span>
+                <div v-if="submit.errors.fio">
+                    <span class="field__error" v-for="(err, index) in submit.errors.fio" :key="err.id" >{# err #}</span>
+                </div>
+            </div>
+            <div class="form__col" :class="{ form__col_error: $v.client.phone.$error || submit.errors.pPhone }" v-if="!$store.state.isAuth">
+                <label>
+                    <span class="field-title">Названия темы работ</span>
+                    <div class="field">
+                        <vue-tel-input
+                            name="phone"
+                            v-model="$v.client.phone.$model"
+                            placeholder="Номер телефона"
+                            :preferredCountries="['by', 'ua', 'kz', 'ru']"
+                            @onInput="onPhoneInput"
+                            required >
+                        </vue-tel-input>
+                        <span class="field__error" v-if="$v.client.phone.$error">Неверный номер</span>
+                        <span class="field__error" v-if="submit.errors.phone">{# submit.errors.phone #}</span>
+                    </div>
+                </label>
+            </div>
+            <div class="form__col" :class="{ form__col_error: $v.client.email.$error || submit.errors.email }" v-if="!$store.state.isAuth">
+                <label>
+                    <span class="field-title">Названия темы работ</span>
+                    <div class="field">
+                        <input
+                            name="email"
+                            type="text"
+                            class="input"
+                            placeholder="e-mail"
+                            v-model="$v.client.email.$model"
+                            required />
+                        <span class="field__error" v-if="$v.client.email.$error">Введите e-mail</span>
+                        <div v-if="submit.errors.email">
+                            <span class="field__error" v-for="(err, index) in submit.errors.email" :key="err.id" >{# err #}</span>
+                        </div>
+                    </div>
+                </label>
+            </div>
+            <div class="form__col">
+                <button type="submit" class="btn btn_blue" :class="{ submit: stage.current === 2}" @click.prevent="processStage">
+                    <span class="loader" v-if="pending"></span>
+                    <span v-else>Заказать</span>
+                </button>
+            </div>
+        </div>
+        <div class="form__row">
+            <div class="form__col">
+                <ul class="files__list" v-if="fileCount > 0">
+                    <li v-for="(file, index) in filesUpload.files" :key="file.id">
+                        <span class="files__item">{# file.name #} <button class="btn files__btn-remove" @click.prevent="removeFile(index)">✕</button></span>
+                        <div
+                            class="form__progress"
+                            :style="{ width: file.width + '%', backgroundColor: file.color }"
+                            v-if="file.show"></div>
+                    </li>
+                </ul>
+                <input
+                    name="filesId"
+                    type="file"
+                    class="input input_file"
+                    ref="files"
+                    multiple
+                    :name="'filesId'"
+                    @change="filesChange($event.target.name, $event.target.files); fileCount = $event.target.files.length + 1" />
+                <ul class="form__error-list" v-if="$v.order.files.$error || submit.errors.filesId">
+                    <li v-if="!$v.order.files.maxFileSize">Суммарный размер файлов не должен превышать {# maxFileSize #} мБ</li>
+                    <li v-if="!$v.order.files.maxLength">Можно прикрепить не более {# maxFileCount #} файлов</li>
+                    <li v-if="submit.errors.filesId">
+                        <span class="field__error" v-for="(err, index) in submit.errors.filesId" :key="err.id" >{# err #}</span>
+                    </li>
+                </ul>
+                <button class="btn files__btn-add" @click.prevent="addFiles">+ Прикрепить файл</button>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,117 @@
+.sidenav {
+    display: none;
+    min-width: 250px;
+    background-color: #fff;
+
+    &.active {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__close-btn {
+        right: 100%;
+        top: 0;
+        padding: 0;
+        position: absolute;
+        width: 72px;
+        height: 72px;
+        border: none;
+        font-size: 40px;
+        font-weight: 300;
+        color: var(--black);
+        background-color: #e6e8ed;
+        transition: all 0.2s;
+
+        &:hover {
+            color: var(--secondary-hov);
+            background-color: rgb(245, 246, 250);
+        }
+    }
+
+    &__phone {
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 72px;
+        font-size: 24px;
+        font-weight: bold;
+        letter-spacing: 0.4px;
+        background-color: rgb(245, 246, 250);
+        color: var(--black);
+        padding: 0 8px;
+        transition: color 0.2s;
+
+        &:hover {
+            color: #1baaef;
+        }
+
+        &::before {
+            content: "";
+            display: inline-block;
+            height: 25px;
+            width: 25px;
+            margin-right: 10px;
+            background-repeat: no-repeat;
+            background-size: contain;
+            vertical-align: middle;
+            background-image: svg-load("../svg/phone.svg", fill=#1baaef);
+        }
+    }
+
+    &__footer {
+        display: flex;
+        height: 60px;
+        width: 100%;
+    }
+
+    &__btn {
+        flex: 1 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        letter-spacing: 0.3px;
+        padding: 0;
+        transition: box-shadow 0.2s, background-color 0.2s;
+    }
+
+    &__btn:nth-child(2) {
+        background-color: rgb(245, 246, 250);
+        color: #1baaef;
+
+        &:hover {
+            background-color: rgb(229, 230, 234);
+            box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+        }
+    }
+
+    &__btn:nth-child(1) {
+        background-color: #1baaef;
+        color: #fff;
+
+        &:hover {
+            background-color: rgb(27, 138, 206);
+            box-shadow: 0 5px 10px 0 var(--secondary-shadow);
+        }
+    }
+
+
+    & .nav {
+        margin: 20px 0;
+
+        &__list {
+            flex-direction: column;
+        }
+
+        &__list-link {
+            color: var(--black);
+            padding: 12px 22px;
+            transition: color 0.15s;
+
+            &:hover {
+                color: #1baaef;
+            }
+        }
+    }
+}

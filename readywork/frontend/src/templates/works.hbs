@@ -1,0 +1,44 @@
+{{#> layout class="works-page" }}
+    {{#*inline "content"}}
+        <div class="section section_breadcrumbs">
+            <div class="wrapper">
+                {{> breadcrumbs }}
+                <div class="title">Готовые контрольные работы</div>
+            </div>
+        </div>
+        <div class="section section_form">
+            <div class="wrapper">
+                <the-form-shop></the-form-shop>
+            </div>
+        </div>
+        <div class="section section_works-list">
+            <div class="wrapper">
+                {{> works-filter }}
+                {{> works-list }}
+                {{> paginator }}
+            </div>
+        </div>
+        <div class="section section_works-base">
+            <div class="wrapper">
+                {{> works-base }}
+            </div>
+        </div>
+        <div class="section section_more">
+            <div class="wrapper">
+                <div class="more">
+                    <h3>Достоинства покупки готовой контрольной работы</h3>
+                    <p>
+                        Покупать готовую контрольную работу в несколько раз дешевле
+                        чем заказывать ее выполнение у посредников. Готовую контрольную
+                        вы получаете сразу же после покупки вам не надо ждать когда ее напишут.
+                        Из готовой работы можно достать полезную информацию, просмотреть
+                        структуру и то как ее оформляли. Если же требования к контрльной
+                        не жесткие то ее можно просто уникализовать самому или же заказать
+                        уникализацию контрольной работы у нас. Есть как потрепанные так и
+                        полностью уникальные контрольные.
+                    </p>
+                </div>
+            </div>
+        </div>
+    {{/inline}}
+{{/layout}}

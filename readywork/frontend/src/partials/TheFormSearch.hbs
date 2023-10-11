@@ -1,0 +1,54 @@
+<form action="" class="form form-search">
+    <div class="title form__title">Шаблоны готовых работ</div>
+    <div class="form__row">
+        <div class="form__col">
+            <div class="field">
+                <input type="text" class="input" placeholder="Поиск по теме работы"/>
+            </div>
+        </div>
+        <div class="form__col">
+            <div class="field">
+                <select name="type[]" class="input select">
+                    <option value="0">Тип работы</option>
+                    <option value="3">Реферат</option>
+                    <option value="1">Курсовая</option>
+                    <option value="2">Дипломная</option>
+                    <option value="5">Контрольная</option>
+                    <option value="4">Отчет</option>
+                    <option value="7">Доклад</option>
+                    <option value="16">Учебник</option>
+                    <option value="17">Шпаргалка</option>
+                    <option value="6">Эссе</option>
+                    <option value="19">Монография</option>
+                </select>
+                <span class="select-marker">▼</span>
+            </div>
+        </div>
+        <div class="form__col">
+            <button class="btn btn_green">Найти работу</button>
+        </div>
+    </div>
+    <ul
+        class="form__initials-row"
+        v-show="subjectsLoaded">
+        <li
+            v-for="symbol in symbols"
+            :key="symbol.id"
+            :class="['form__initial', { _active: currentList === symbol.title }]"
+            @click="showList(symbol.title, $event)"
+            v-cloak>
+            {# symbol.title #}
+        </li>
+    </ul>
+    <div class="result">
+        <ul class="result__list" v-if="currentList != ''">
+            <li
+                class="result__item"
+                v-for="subject in computedList"
+                :key="subject.id">
+                <span class="result__number">{# subject.col #}</span>
+                <a :href="subject.id" class="result__link">{# subject.name #}</a>
+            </li>
+        </ul>
+    </div>
+</form>

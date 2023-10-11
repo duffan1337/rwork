@@ -1,0 +1,38 @@
+.worktypes {
+
+    &__list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        columns: 270px auto;
+        column-gap: 14px;
+    }
+
+    &__item {
+        display: flex;
+        margin-bottom: 12px;
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    & .worktype {
+
+        &__link {
+            display: block;
+            font-size: 14px;
+            line-height: 18px;
+            color: #2F323D;
+            transition: color .3s ease-in-out;
+
+            & span {
+                color: #757989;
+            }
+
+            &:hover,
+            &:focus {
+                color: #11BDFF;
+                outline: none;
+            }
+        }
+    }
+}

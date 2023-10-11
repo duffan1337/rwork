@@ -1,0 +1,47 @@
+.breadcrumbs {
+    padding: 24px 0;
+
+    @media (--mobile) {
+        padding: 8px 0;
+    }
+
+    &__list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__list li {
+        display: inline;
+    }
+
+    &__item {
+        font-size: 15px;
+        line-height: 24px;
+        position: relative;
+        color: #11BDFF;
+        text-decoration: underline;
+
+        @media (--mobile) {
+            font-size: 13px;
+        }
+
+        &::after {
+            content: "/";
+            display: inline-block;
+            color: var(--textColor);
+            margin-left: 5px;
+            pointer-events: none;
+            text-decoration: none;
+        }
+
+        &_active {
+            color: var(--textColor);
+            text-decoration: none;
+
+            &::after {
+                display: none;
+            }
+        }
+    }
+}

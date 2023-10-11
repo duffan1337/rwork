@@ -1,0 +1,46 @@
+<form action="" class="form {{class}}">
+    <div class="form__row">
+        <div class="form__col" :class="{ form__col_error: $v.client.email.$error || submit.errors.email }">
+            <div class="field">
+                <input
+                    name="email"
+                    type="text"
+                    class="input"
+                    placeholder="E-mail"
+                    v-model="$v.client.email.$model"
+                    required />
+                <span class="field__error" v-if="$v.client.email.$error">Введите e-mail</span>
+                <div v-if="submit.errors.email">
+                    <span class="field__error" v-for="(err, index) in submit.errors.email" :key="err.id">{# err #}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form__row">
+        <div class="form__col" :class="{ form__col_error: $v.client.password.$error || submit.errors.password }">
+            <div class="field">
+                <input
+                    name="password"
+                    type="password"
+                    class="input"
+                    placeholder="Пароль"
+                    v-model="$v.client.password.$model"
+                    required />
+                <span class="field__error" v-if="$v.client.password.$error">Введите пароль</span>
+                <div v-if="submit.errors.password">
+                    <span class="field__error" v-for="(err, index) in submit.errors.password" :key="err.id">{# err #}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form__row">
+        <div class="form__col">
+            <button type="submit" class="btn btn_blue" @click.prevent="submitForm">Войти</button>
+        </div>
+    </div>
+    <div class="form__row">
+        <div class="form__col form__col_forgot-password">
+            <a href="#">Забыли пароль?</a>
+        </div>
+    </div>
+</form>

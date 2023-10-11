@@ -1,0 +1,19 @@
+{{#> layout }}
+    {{#*inline "content"}}
+        <div class="section">
+            <div class="wrapper">
+
+                {{> breadcrumbs }}
+
+                <div class="title">Информатика, Вычислительная техника, телекоммуникации</div>
+                <div class="subject">
+
+                    {{> form-subject-sort }}
+                    {{> info-table class="subject__info-table" }}
+                    {{> paginator }}
+
+                </div>
+            </div>
+        </div>
+    {{/inline}}
+{{/layout}}

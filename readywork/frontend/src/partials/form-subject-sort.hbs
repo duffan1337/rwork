@@ -1,0 +1,36 @@
+<form method="get" onchange="this.submit();" class="form {{ class }}">
+    <div class="form__row">
+        <div class="form__col">
+            <label for="form.worktype" class="form__col-label">Тип работы:</label>
+            <div class="field">
+                <select id="form.worktype" name="typeFilter[]" class="input select">
+                    <option>Любой</option>
+                    <option selected="selected" value="3">Реферат</option>
+                    <option value="1">Курсовая</option>
+                    <option value="2">Дипломная</option>
+                    <option value="5">Контрольная</option>
+                    <option value="4">Отчет</option>
+                    <option value="7">Доклад</option>
+                    <option value="16">Учебник</option>
+                    <option value="17">Шпаргалка</option>
+                    <option value="6">Эссе</option>
+                    <option value="19">Монография</option>
+                </select>
+                <span class="select-marker">▼</span>
+            </div>
+        </div>
+        <div class="form__col">
+            <label for="form.sort" class="form__col-label">Сортировать результаты по:</label>
+            <div class="field">
+                <select id="form.sort" name="sort" class="input select">
+                    <option selected="selected" value="ascName">Тема работы ( А&mdash;Я )</option>
+                    <option value="descName">Тема работы(Я-А)</option>
+                    <option value="ascPrice">Цена(0-100)</option>
+                    <option value="descPrice">Цена(100-0)</option>
+                </select>
+                <span class="select-marker">▼</span>
+            </div>
+        </div>
+    </div>
+</form>
+

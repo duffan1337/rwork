@@ -1,0 +1,27 @@
+<div class="login">
+    <div class="login__inner">
+        <button class="btn login__btn login__btn_close" @click="closeModal()">&times;</button>
+        <div class="login__header">
+            <div class="login__title" v-if="$store.state.buyReadyWork">Покупка готовой работы</div>
+            <div class="login__title" v-else-if="type=='registration'">Регистрация</div>
+            <div class="login__title" v-else-if="type=='login'">Вход в личный кабинет</div>
+            <div class="login__title" v-else-if="type=='remind'">Восстановление пароля</div>
+            <!--<button
+                v-for="tab in tabs"
+                :key="tab.component"
+                :id="tab.id"
+                :class="['btn login__btn', { login__btn_active: currentTab === tab.component }]"
+                @click="currentTab = tab.component">
+                {# tab.name #}
+            </button>-->
+        </div>
+
+        <keep-alive>
+            <component :is="currentTab"></component>
+        </keep-alive>
+
+        <div class="login__footer" v-if="type=='registration'">Уже есть аккаунт?<button class="btn" @click="setType('login')">Вход</button></div>
+        <div class="login__footer" v-else>Нет аккаунта?<button class="btn" @click="setType('registration')">Зарегистрируйтесь</button></div>
+    </div>
+</div>
+

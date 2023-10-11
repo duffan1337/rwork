@@ -1,0 +1,14 @@
+:root {
+    --roboto: 'Roboto', sans-serif;
+    --transition-delay: 0.2s;
+    --textColor: #757989;
+    --black: rgb(47, 50, 61);
+    --primary: rgb(118, 188, 0);
+    --primary-hov: rgb(135, 195, 33);
+    --primary-shadow: rgba(129, 164, 70, 0.54);
+    --secondary: rgb(27, 170, 239);
+    --secondary-hov: rgb(38, 177, 244);
+    --secondary-shadow: rgba(31, 117, 156, 0.54);
+    --error: rgb(213, 43, 99);
+    --shadow: 0 5px 30px 0 rgba(189, 206, 228, 0.4);
+}

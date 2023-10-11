@@ -1,0 +1,255 @@
+.payment-card {
+    position: relative;
+    border-radius: 4px;
+    box-shadow: var(--shadow);
+    background-color: #fff;
+    margin: 16px 0;
+    padding: 32px 24px;
+
+    @media (--tablet) {
+        padding: 28px 16px;
+    }
+
+    &::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+    &__title {
+        display: inline-block;
+        margin-bottom: 24px;
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 27px;
+        letter-spacing: 0.4px;
+        text-align: left;
+        color: var(--primary);
+
+        @media (--tablet) {
+            display: block;
+        }
+    }
+
+    &__text {
+        font-size: 18px;
+        letter-spacing: 0.3px;
+        text-align: left;
+        color: var(--black);
+        margin-bottom: 8px;
+        max-width: 850px;
+
+        &_address {
+            display: inline-block;
+            width: 280px;
+            height: 45px;
+            background: svg-load("../svg/address.svg") no-repeat 0 50%;
+            background-size: contain;
+        }
+    }
+
+    &__minor-text {
+        font-size: 18px;
+        letter-spacing: 0.3px;
+        color: rgb(117, 121, 137);
+    }
+
+    &__tip {
+        display: inline-block;
+        padding: 12px;
+        margin-bottom: 12px;
+        min-height: 45px;
+        border-radius: 4px;
+        box-shadow: var(--shadow);
+        background-color: rgb(238, 248, 252);
+
+        & span {
+            font-size: 18px;
+            font-weight: 300;
+            letter-spacing: 0.3px;
+            text-align: left;
+            color: var(--secondary);
+            position: relative;
+            display: inline-block;
+
+            &::before {
+                content: "!";
+                margin-right: 12px;
+                display: inline-block;
+                vertical-align: middle;
+                font-size: 20px;
+                font-weight: bold;
+            }
+        }
+    }
+
+    &__logo {
+        float: right;
+        margin-top: 20px;
+        width: 260px;
+        height: 70px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        @media (--tablet) {
+            float: none;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        &_webmoney {
+            background-image: svg-load("../svg/logo_webmoney.svg");
+        }
+
+        &_robokassa {
+            background-image: svg-load("../svg/logo_robokassa.svg");
+        }
+
+        &_yandex-money {
+            background-image: svg-load("../svg/logo_yandex-money.svg");
+        }
+
+        &_qiwi {
+            background-image: svg-load("../svg/logo_qiwi.svg");
+            height: 120px;
+
+            @media (--tablet) {
+                height: 90px;
+                width: 200px;
+            }
+        }
+
+        &_sberbank {
+            background-image: svg-load("../svg/logo_sberbank.svg");
+        }
+    }
+
+    &__more {
+        display: inline-block;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        padding: 0;
+        font-size: 18px;
+        font-weight: 300;
+        letter-spacing: 0.3px;
+        text-align: left;
+        color: var(--secondary);
+        border-bottom: 1px dashed var(--secondary);
+        transition: all 0.2s;
+        cursor: pointer;
+
+        &:hover {
+            border-bottom-color: transparent;
+        }
+
+        &._disabled {
+            color: #888;
+            border-bottom-color: #888;
+
+            &:hover {
+                border-bottom-color: #888;
+            }
+        }
+
+        &_pictures, &_videos {
+            position: relative;
+            margin: 8px 0 8px 32px;
+
+            &::before {
+                content: "";
+                display: inline-block;
+                position: absolute;
+                top: 3px;
+                left: -30px;
+                width: 20px;
+                height: 20px;
+                background-repeat: no-repeat;
+                background-position: left center;
+                background-size: 18px;
+            }
+        }
+
+        &_pictures {
+
+            &::before {
+                background-image: svg-load("../svg/icon-pictures.svg", fill=#1baaef);
+            }
+        }
+
+        &_videos {
+
+            &::before {
+                background-image: svg-load("../svg/icon-play.svg", fill=#1baaef);
+                background-size: 15px;
+            }
+        }
+    }
+
+    & ol, &__list {
+        max-width: 900px;
+        margin: 8px 0;
+        padding-left: 32px;
+        font-size: 18px;
+        letter-spacing: 0.3px;
+        text-align: left;
+        color: var(--black);
+
+        & li {
+            margin: 8px 0;
+            position: relative;
+        }
+    }
+
+    &__list {
+        list-style: none;
+        padding-left: 48px;
+
+        &_columns {
+            column-count: 3;
+
+            @media (--tablet) {
+                column-count: 2;
+            }
+        }
+
+        & li {
+
+            &::before {
+                content: "";
+                position: absolute;
+                left: -22px;
+                top: 10px;
+                display: inline-block;
+                vertical-align: middle;
+                border-radius: 50%;
+                width: 8px;
+                height: 8px;
+                background-color: var(--secondary);
+            }
+        }
+    }
+
+    &__list_columns {
+
+        & li:first-child {
+            margin-top: 0;
+        }
+    }
+
+    &__instructions {
+        margin-top: 8px;
+        display: none;
+        animation: showInstructions ease-in-out 0.3s;
+
+        &._open {
+            display: block;
+        }
+    }
+}
+
+@keyframes showInstructions {
+    from { transform: scale(0,0); }
+    to { transform: scale(1,1); }
+}
